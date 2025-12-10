@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -142,6 +141,44 @@ export default function Navbar() {
                 {l.label}
               </Link>
             ))}
+
+            {user && (
+              <div style={{ display: 'grid', gap: 8 }}>
+                {user.role === 'admin' && (
+                  <Link
+                    href="/admin/dashboard"
+                    style={{
+                      color: router.pathname === '/admin/dashboard' ? '#00f5d4' : '#ffffff',
+                      opacity: router.pathname === '/admin/dashboard' ? 1 : 0.8
+                    }}
+                  >
+                    Admin
+                  </Link>
+                )}
+                {user.role === 'frontdesk' && (
+                  <Link
+                    href="/frontdesk/dashboard"
+                    style={{
+                      color: router.pathname === '/frontdesk/dashboard' ? '#00f5d4' : '#ffffff',
+                      opacity: router.pathname === '/frontdesk/dashboard' ? 1 : 0.8
+                    }}
+                  >
+                    Frontdesk
+                  </Link>
+                )}
+                {user.role === 'user' && (
+                  <Link
+                    href="/user/my-applications"
+                    style={{
+                      color: router.pathname === '/user/my-applications' ? '#00f5d4' : '#ffffff',
+                      opacity: router.pathname === '/user/my-applications' ? 1 : 0.8
+                    }}
+                  >
+                    My Applications
+                  </Link>
+                )}
+              </div>
+            )}
 
             <div style={{ marginTop: 10 }}>
               {user ? (

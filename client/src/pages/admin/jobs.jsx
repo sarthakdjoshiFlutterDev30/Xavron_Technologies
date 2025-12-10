@@ -156,7 +156,7 @@ export default function AdminJobs() {
   };
 
   return (
-    <section className="section" style={{ display: 'flex', gap: 18 }}>
+    <section className="section" style={{ display: 'flex', gap: 18, flexWrap: 'wrap' }}>
       <SidebarAdmin />
       <div style={{ flex: 1 }}>
         <div className="card">

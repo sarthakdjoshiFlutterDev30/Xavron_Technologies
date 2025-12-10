@@ -74,7 +74,7 @@ export default function FrontdeskDashboard() {
 
 
   return (
-    <section className="section" style={{ display: 'flex', gap: 18 }}>
+    <section className="section" style={{ display: 'flex', gap: 18, flexWrap: 'wrap' }}>
       <SidebarFrontdesk />
       <div style={{ flex: 1 }}>
         <div style={{ marginBottom: 24 }}>

@@ -140,7 +140,7 @@ export default function FrontdeskVisitors() {
   };
 
   return (
-    <section className="section" style={{ display: 'flex', gap: 18 }}>
+    <section className="section" style={{ display: 'flex', gap: 18, flexWrap: 'wrap' }}>
       <SidebarFrontdesk />
       <div style={{ flex: 1 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
@@ -344,7 +344,8 @@ export default function FrontdeskVisitors() {
           ) : visitors.length === 0 ? (
             <div style={{ color: 'var(--muted)', textAlign: 'center', padding: 20 }}>No visitors found</div>
           ) : (
-            <div style={{ overflowX: 'auto' }}>
+            <>
+            <div className="hide-on-mobile" style={{ overflowX: 'auto' }}>
               <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                 <thead>
                   <tr style={{ borderBottom: '1px solid var(--border)' }}>
@@ -411,6 +412,45 @@ export default function FrontdeskVisitors() {
                 </tbody>
               </table>
             </div>
+
+            <div className="show-on-mobile" style={{ display: 'grid', gap: 12 }}>
+              {visitors.map((visitor) => (
+                <div key={visitor._id} style={{ padding: '12px 14px', border: '1px solid var(--border)', borderRadius: 12, background: 'rgba(255,255,255,0.04)' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8 }}>
+                    <div style={{ fontWeight: 700 }}>{visitor.name}</div>
+                    {visitor.status === 'checked-in' ? (
+                      <span className="status selected" style={{ fontSize: '11px' }}>Checked In</span>
+                    ) : visitor.status === 'checked-out' ? (
+                      <span className="status Reviewed" style={{ fontSize: '11px' }}>Checked Out</span>
+                    ) : (
+                      <span className="status Pending" style={{ fontSize: '11px' }}>Pending</span>
+                    )}
+                  </div>
+                  {visitor.company && (
+                    <div style={{ color: 'var(--muted)', fontSize: '12px', marginTop: 4 }}>{visitor.company}</div>
+                  )}
+                  <div style={{ color: 'var(--muted)', fontSize: '13px', marginTop: 6 }}>
+                    {visitor.phone} {visitor.email && `• ${visitor.email}`}
+                  </div>
+                  <div style={{ fontSize: '13px', marginTop: 6 }}>
+                    {visitor.purpose}
+                  </div>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, marginTop: 8, color: 'var(--muted)', fontSize: '12px' }}>
+                    <div>In: {formatDateTime(visitor.checkIn)}</div>
+                    <div>Out: {formatDateTime(visitor.checkOut)}</div>
+                  </div>
+                  <div style={{ marginTop: 10, display: 'flex', alignItems: 'center', gap: 8 }}>
+                    {visitor.status === 'pending' && (
+                      <button className="btn btn-primary" style={{ fontSize: '12px', padding: '6px 12px' }} onClick={() => handleCheckIn(visitor._id)}>Check In</button>
+                    )}
+                    {visitor.status === 'checked-in' && (
+                      <button className="btn btn-ghost" style={{ fontSize: '12px', padding: '6px 12px' }} onClick={() => handleCheckOut(visitor._id)}>Check Out</button>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+            </>
           )}
         </div>
       </div>

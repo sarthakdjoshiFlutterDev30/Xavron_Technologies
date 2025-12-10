@@ -130,3 +130,48 @@ input:focus, textarea:focus, select:focus {
   box-shadow: 0 16px 40px rgba(0,0,0,0.3);
 }
 
+/* Layout helpers */
+.sidebar {
+  width: 240px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .hero {
+    padding: 80px 0 60px;
+  }
+  .section {
+    padding: 56px 0;
+  }
+  .sidebar {
+    width: 100%;
+  }
+  .table th, .table td {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 32px;
+  }
+}
+
+/* Make data tables scrollable inside cards on small screens */
+.card table {
+  min-width: 720px;
+}
+.card {
+  overflow-x: auto;
+}
+.show-on-mobile {
+  display: none;
+}
+.hide-on-mobile {
+  display: block;
+}
+@media (max-width: 900px) {
+  .show-on-mobile { display: block !important; }
+  .hide-on-mobile { display: none !important; }
+}
+

@@ -1,6 +1,7 @@
 export default function ApplicationTable({ applications = [], onStatusChange, onWithdraw }) {
   return (
     <div className="card">
+      <div className="hide-on-mobile" style={{ overflowX: 'auto' }}>
       <table className="table">
         <thead>
           <tr>
@@ -86,7 +87,62 @@ export default function ApplicationTable({ applications = [], onStatusChange, on
           ))}
         </tbody>
       </table>
+      </div>
+
+      <div className="show-on-mobile" style={{ display: 'grid', gap: 12 }}>
+        {applications.map((app) => (
+          <div key={app._id} style={{ padding: '12px 14px', border: '1px solid var(--border)', borderRadius: 12, background: 'rgba(255,255,255,0.04)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8 }}>
+              <div style={{ fontWeight: 700 }}>{app.userId?.name || app.candidateName || '—'}</div>
+              <span className={`status ${app.status}`} style={{ fontSize: '11px' }}>{app.status}</span>
+            </div>
+            <div style={{ color: 'var(--muted)', fontSize: '13px', marginTop: 6 }}>
+              {app.userId?.contactNo || app.candidateContact || app.contactNo || '—'}
+            </div>
+            <div style={{ fontSize: '13px', marginTop: 6 }}>
+              {app.jobId?.title || '—'}
+            </div>
+            <div style={{ marginTop: 10, display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+              <a
+                href={app.resumeUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-ghost"
+                style={{ padding: '6px 12px', fontSize: '13px', textDecoration: 'none' }}
+              >
+                📄 Preview
+              </a>
+              {onStatusChange && (
+                <select
+                  value={app.status}
+                  onChange={(e) => onStatusChange(app._id, e.target.value)}
+                  style={{
+                    padding: '8px 32px 8px 12px',
+                    fontSize: '13px',
+                    borderRadius: '10px',
+                    border: '1px solid var(--border)',
+                    background: 'rgba(255,255,255,0.06)',
+                    color: 'var(--text)',
+                    cursor: 'pointer',
+                    appearance: 'none',
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%239fb0d6' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'right 10px center'
+                  }}
+                >
+                  <option value="Pending" title="Pending">⏳</option>
+                  <option value="Reviewed" title="Reviewed">👁️</option>
+                  <option value="Selected" title="Selected">✅</option>
+                  <option value="Rejected" title="Rejected">❌</option>
+                </select>
+              )}
+              {onWithdraw && (
+                <button className="btn btn-ghost" onClick={() => onWithdraw(app._id)}>Withdraw</button>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
-

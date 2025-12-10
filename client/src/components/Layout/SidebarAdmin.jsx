@@ -10,7 +10,7 @@ const links = [
 export default function SidebarAdmin() {
   const router = useRouter();
   return (
-    <aside style={{ width: 240, height: 'fit-content' }} className="glass">
+    <aside style={{ height: 'fit-content' }} className="glass sidebar">
       <div style={{ 
         padding: 20, 
         borderBottom: '1px solid var(--border)', 
