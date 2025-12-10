@@ -93,7 +93,7 @@ exports.seedAdmin = async () => {
   }
   const salt = await bcrypt.genSalt(10);
   const hash = await bcrypt.hash('Admin@123', salt);
-  const admin = await User.create({ name: 'Xavron Admin', email: adminEmail, password: hash, role: 'admin' });
+  const admin = await User.create({ name: 'Xavron Admin', email: adminEmail, password: hash, contactNo: process.env.ADMIN_CONTACT_NO || '8799196162', role: 'admin' });
   console.log('Seeded admin:', admin.email);
 };
 
@@ -107,7 +107,7 @@ exports.seedFrontdesk = async () => {
   }
   const salt = await bcrypt.genSalt(10);
   const hash = await bcrypt.hash('Frontdesk@123', salt);
-  const frontdesk = await User.create({ name: 'Frontdesk Executive', email: frontdeskEmail, password: hash, contactNo: '0000000000', role: 'frontdesk' });
+  const frontdesk = await User.create({ name: 'Frontdesk Executive', email: frontdeskEmail, password: hash, contactNo: '8799196162', role: 'frontdesk' });
   console.log('Seeded frontdesk:', frontdesk.email);
 };
 
