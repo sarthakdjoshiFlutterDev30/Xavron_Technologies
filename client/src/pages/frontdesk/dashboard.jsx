@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import SidebarFrontdesk from '../components/Layout/SidebarFrontdesk';
+import SidebarFrontdesk from '../../components/Layout/SidebarFrontdesk';
 import { api } from '../../utils/axios';
 import { getUser } from '../../utils/auth';
 
