@@ -1,0 +1,5 @@
+{
+    "useEslintrc": false,
+    "extensions": ["js", "jsx"]
+  }
+  
