@@ -3,14 +3,12 @@
   "version": "1.0.0",
   "description": "XAVRON single-root backend (Express + MongoDB + Cloudinary + JWT)",
   "main": "server.js",
- "scripts": {
-  "start": "node server.js",
-  "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
-  "dev:server": "nodemon server.js",
-  "dev:client": "npm run --prefix client dev",
-  "build": "npm run --prefix client build"
-},
- "dependencies": {
+  "scripts": {
+    "start": "node server.js",
+    "dev:server": "nodemon server.js",
+    "build": "echo \"No build needed for server-only backend\""
+  },
+  "dependencies": {
     "bcryptjs": "^2.4.3",
     "cloudinary": "^2.8.0",
     "cookie-parser": "^1.4.6",
