@@ -9,6 +9,7 @@ export default function App({ Component, pageProps }) {
       <Head>
         <title>XAVRON-Education Management System</title>
         <link rel="icon" href="/Logo_Xavron.png" />
+        <meta name="google-site-verification" content="Nr6_ejgGp7gXH4ioPH-4mEeOi0QpgswRPJYF_y3PBOI" />
         <meta name="keywords" content="XAVRON, XAVRON Technologies, XAVRON Technologies (OPC) Pvt. Ltd., Education Management System, Attendance Management System, Project Management System, Student Management System" />
         <meta name="author" content="XAVRON Technologies (OPC) Pvt. Ltd." />
         <meta name="robots" content="index, follow" />
