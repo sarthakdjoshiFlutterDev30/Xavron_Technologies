@@ -80,7 +80,7 @@ export default function Home() {
       {/* Pricing teaser */}
       <section className="section">
         <h2>Affordable, Transparent Pricing</h2>
-        <p style={{ color: 'var(--muted)' }}>₹365/student/year + 18% GST</p>
+        <p style={{ color: 'var(--muted)' }}>₹365/User/year + 18% GST</p>
         <Link className="btn btn-primary" href="/pricing">View Pricing</Link>
       </section>
 

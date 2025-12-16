@@ -40,6 +40,21 @@ export default function Footer() {
             <p style={{ color: 'var(--muted)', marginTop: 10 }}>
               Xavron is a next-gen educational platform simplifying attendance, project management, and student engagement with smart, secure, cloud-based technology.
             </p>
+            <p style={{ color: 'var(--muted)', marginTop: 8 }}>
+              Contact:&nbsp;
+              <a
+                href="tel:+918799196162"
+                style={{ color: 'var(--muted)', textDecoration: 'none', transition: 'color 0.2s ease' }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = '#d4af37';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = 'var(--muted)';
+                }}
+              >
+                +91 8799196162
+              </a>
+            </p>
           </div>
 
           <div>
@@ -66,7 +81,6 @@ export default function Footer() {
 
         <div style={{ marginTop: 24, borderTop: '1px solid var(--border)', paddingTop: 16, display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', gap: 12 }}>
           <div style={{ color: 'var(--muted)' }}>© 2025 Xavron Technologies (OPC) Pvt. Ltd. All Rights Reserved.</div>
-          <div style={{ color: 'var(--muted)' }}>Powered by Flutter & Firebase | Designed for modern educational institutions</div>
         </div>
       </div>
     </footer>

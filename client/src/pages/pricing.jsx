@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 const plan = {
   name: 'Annual Subscription',
   price: '₹365',
-  unit: 'per student / year',
+  unit: 'per user / year',
   gst: '18% GST applicable',
   example: {
     students: 100,
@@ -45,7 +45,7 @@ export default function Pricing() {
       </motion.div>
 
       <div className="card" style={{ marginTop: 16 }}>
-        <h3>Example (for {plan.example.students} students)</h3>
+        <h3>Example (for {plan.example.students} Users)</h3>
         <ul style={{ color: 'var(--muted)', paddingLeft: 18 }}>
           <li>Base: {plan.example.base}</li>
           <li>GST (18%): {plan.example.gst}</li>
